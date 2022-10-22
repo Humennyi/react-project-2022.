@@ -1,0 +1,16 @@
+.card{
+    display: flex;
+   text-align: center;
+    height: 650px;
+    width: 350px;
+
+}
+
+.img{
+    height: 570px;
+}
+.card>h2{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

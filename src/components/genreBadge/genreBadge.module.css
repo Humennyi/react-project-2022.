@@ -1,0 +1,15 @@
+.blok {
+    display: flex;
+    height: 30px;
+    width: 70px;
+    text-align: center;
+    background: yellow;
+    color: black;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    padding: 1px 2px;
+    font-size: 12px;
+    font-weight: 650;
+
+}
