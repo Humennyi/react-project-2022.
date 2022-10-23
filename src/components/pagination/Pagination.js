@@ -1,19 +1,20 @@
-import React from 'react';
+
 import {useDispatch, useSelector} from "react-redux";
 
 import {movieActions} from "../../redux/slices";
+import css from "./Pagination.module.css"
 
-const Pagination = () => {
+const Pagination = ({queryPage}) => {
     const {page} = useSelector(state => state.movieReducer)
 
     const dispatch = useDispatch()
 
 
     return (
-        <div>
+        <div className={css.bloс}>
 
-            <button onClick={async () => {dispatch(movieActions.prevPage(1))}} disabled={page <= 1}>Prev</button>
-            <button  onClick={async () => {dispatch(movieActions.nextPage(1))}} disabled={page >= 500}>Next</button>
+            <button onClick={async () => {dispatch(movieActions.prevPage(1))}} disabled={queryPage <= 1} className={css.button}>Prev</button>
+            <button  onClick={async () => {dispatch(movieActions.nextPage(1))}} disabled={page >= 500} className={css.button}>Next</button>
 
         </div>
     );

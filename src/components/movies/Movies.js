@@ -13,14 +13,20 @@ const Movies = () => {
     const {movies,page} = useSelector(state => state.movieReducer);
 
     const dispatch = useDispatch();
+    const {genre}=useSelector(state => state.genresReducer)
 
 
 
     useEffect(() => {
-        dispatch(movieActions.getAll(page))
+        if(genre){
+            dispatch(movieActions.getMovieWithGenre({genre:genre.id}))
+        }else {
+            dispatch(movieActions.getAll(page))
+        }
+
+    }, [page,dispatch,genre ]);
 
 
-    }, [page,dispatch ]);
     return (
         <div >
             <div className={css.main}>
@@ -30,7 +36,7 @@ const Movies = () => {
                 }
             </div>
 
-            <Pagination/>
+            <Pagination className={css.bloс}/>
         </div>
     );
 };

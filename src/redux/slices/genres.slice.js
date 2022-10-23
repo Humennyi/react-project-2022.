@@ -5,6 +5,7 @@ import {genresService} from "../../services";
 
 const initialState={
     genres:[],
+    genre: null,
 
 
 }
@@ -13,18 +14,26 @@ const getGenres=createAsyncThunk(
     async (_,{rejectWithValue})=>{
         try {
             const {data}=await genresService.getGenres()
-            return data
+            return data.genres
         }catch (e) {
-            return rejectWithValue(e.response.data)
+            return rejectWithValue(e.response?.data)
 
         }
     }
 )
 
-const genderSlice = createSlice({
+
+
+const genresSlice = createSlice({
     name: 'ganderSlice',
     initialState,
-    reducers: {},
+    reducers: {
+        setGenre:(state,action)=>{
+            state.genre=action.payload
+            console.log(state.genre);
+        }
+
+    },
     extraReducers: builder =>
         builder
             .addCase(getGenres.fulfilled, (state, action) => {
@@ -33,13 +42,14 @@ const genderSlice = createSlice({
 });
 
 
-const {reducer: gendersReducer} = genderSlice;
+const {reducer: genresReducer,actions:{ setGenre}} = genresSlice;
 
-const genderActions = {
-    getGenres
+const genresActions = {
+    getGenres,
+    setGenre
 };
 
 export {
-    genderActions,
-    gendersReducer
+    genresActions,
+    genresReducer
 }

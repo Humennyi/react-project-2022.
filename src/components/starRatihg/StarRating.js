@@ -6,7 +6,7 @@ const StarRating = ({rating}) => {
         <div>
             <StarRatings
                 rating={0.5*rating}
-                starRatedColor="blue"
+                starRatedColor="yellow"
                 numberOfStars={5}
                 name='rating'
                 starDimension="20px"

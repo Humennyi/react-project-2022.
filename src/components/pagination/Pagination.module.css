@@ -1,14 +1,11 @@
-.input {
-    width: 300px;
-    height: 30px;
-    border: 2px solid #0b5ed7;
-    border-radius: 8px;
-    padding: 10px 15px;
-    font-size: 20px;
-
+.bloс{
+    width: 350px;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
 }
-
-.btn {
+.button{
     background-color: aliceblue;
     border: none;
     color:black;
@@ -21,10 +18,5 @@
     cursor: pointer;
     border-radius: 8px;
     font-weight:bold
-}
 
-@media (max-width: 576px) {
-    .input {
-        width: 80%;
-    }
 }

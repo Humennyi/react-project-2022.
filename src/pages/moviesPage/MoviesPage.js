@@ -8,8 +8,8 @@ function MoviesPage() {
     return (
         <div className={css.blok}>
 
-            <Movies/>
-            <Genres/>
+            <Genres className={css.genres}/>
+            <Movies className={css.movies}/>
         </div>
     );
 }

@@ -9,6 +9,7 @@ const themePicker = createSlice({
         setLightTheme: (state, action) => {
             state.background = '#C0C0C0'
             state.color = 'black'
+
         }, setDarkTheme: (state, action) => {
             state.background = '#18171B'
             state.color = 'Silver'
