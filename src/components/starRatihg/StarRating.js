@@ -1,11 +1,12 @@
 import React from 'react';
+
 import StarRatings from "react-star-ratings/build/star-ratings";
 
 const StarRating = ({rating}) => {
     return (
         <div>
             <StarRatings
-                rating={0.5*rating}
+                rating={0.5 * rating}
                 starRatedColor="yellow"
                 numberOfStars={5}
                 name='rating'
@@ -16,4 +17,4 @@ const StarRating = ({rating}) => {
     );
 };
 
-export  {StarRating};
+export {StarRating};

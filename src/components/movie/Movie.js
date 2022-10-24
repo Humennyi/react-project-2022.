@@ -1,10 +1,9 @@
 import React from 'react';
-
-import css from './Movie.module.css'
-
 import {useNavigate} from "react-router-dom";
+
 import {StarRating} from "../starRatihg/StarRating";
 import {starUrl} from "../../config";
+import css from './Movie.module.css'
 
 const Movie = ({movie}) => {
 

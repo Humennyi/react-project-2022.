@@ -1,17 +1,19 @@
-import css from './App.css';
+
 import {Route, Routes} from "react-router-dom";
-import {MoviesPage} from "./pages/moviesPage/MoviesPage";
-import {MovieInfoPage} from "./pages/movieInfoPage/MovieInfoPage";
-import {MainLayout} from "./layout/MainLayout";
-import {SearchMovie} from "./components/searchMovie/SearchMovie";
 import {useSelector} from "react-redux";
+
+import {MainLayout} from "./layout";
+import {MovieInfoPage, MoviesPage} from "./pages";
+import {SearchMovie} from "./components";
+
+
 
 
 
 function App() {
     const {background, color} = useSelector(state => state.themeReducer)
     return (
-        <div className={css.App}>
+        <div >
             <div style={{color: color, background: background }}>
                 <Routes>
                     <Route path={'/'} element={<MainLayout/>}>

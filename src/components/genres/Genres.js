@@ -12,15 +12,15 @@ const Genres = () => {
 
     useEffect(() => {
         dispatch(genresActions.getGenres());
-    }, []);
+    }, [dispatch]);
 
     return (
         <div>
             {genres.map(zhanr =>
                 < button key={zhanr.id}
-                 className={css.main}
-                onClick={() => dispatch(genresActions.setGenre(zhanr))}>
-                {zhanr.name}
+                         className={css.main}
+                         onClick={() => dispatch(genresActions.setGenre(zhanr))}>
+                    {zhanr.name}
                 </button>)}
         </div>
     );

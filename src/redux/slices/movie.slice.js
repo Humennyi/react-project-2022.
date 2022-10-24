@@ -32,6 +32,7 @@ const searchMovie = createAsyncThunk(
             return rejectWithValue(e.response.data)
         }
     });
+
 let getMovieInfo = createAsyncThunk(
     'moviesSlice/getById',
     async ({id}, {rejectWithValue}) => {
@@ -44,18 +45,18 @@ let getMovieInfo = createAsyncThunk(
     }
 );
 
-let getMovieWithGenre= createAsyncThunk(
+let getMovieWithGenre = createAsyncThunk(
     'movieSlice/getMovieWithGenre',
-    async ({genre},{rejectWithValue})=>{
+    async ({genre}, {rejectWithValue}) => {
         try {
-            let {data}=await movieService.getMovieWithGenre(genre)
+            let {data} = await movieService.getMovieWithGenre(genre)
 
             return data
-        }catch (e) {
+        } catch (e) {
             return rejectWithValue(e.response.data)
         }
     }
-)
+);
 
 const movieSlice = createSlice({
     name: 'movieSlice',
@@ -67,18 +68,17 @@ const movieSlice = createSlice({
         prevPage: (state, action) => {
             state.page -= 1
         },
-        setPage: (state, action) => {
-            state.page = action.payload
-        },
     },
     extraReducers: builder =>
         builder
             .addCase(getAll.fulfilled, (state, action) => {
                 state.movies = action.payload;
+                state.loading = false;
             })
 
             .addCase(searchMovie.fulfilled, (state, action) => {
                 state.movies = action.payload;
+                state.loading = false;
             })
             .addCase(getMovieInfo.fulfilled, (state, action) => {
                 state.movie = action.payload;
@@ -86,6 +86,7 @@ const movieSlice = createSlice({
             })
             .addCase(getMovieWithGenre.fulfilled,(state, action)=>{
                 state.movies=action.payload
+                state.loading = false
             })
 
 
@@ -101,11 +102,9 @@ const movieActions = {
     nextPage,
     prevPage,
     setPage
-
-
 };
 
 export {
     movieActions,
     movieReducer
-}
+};

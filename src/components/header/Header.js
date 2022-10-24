@@ -1,18 +1,22 @@
 import React, {useState} from 'react';
-import {SearchMovie} from "../searchMovie/SearchMovie";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {useDispatch} from "react-redux";
-import {themeAction} from "../../redux/slices/theme.sclice";
 import {faToggleOff, faToggleOn} from "@fortawesome/free-solid-svg-icons";
+import {useDispatch} from "react-redux";
+import {SearchMovie} from "../searchMovie/SearchMovie";
+import {themeAction} from "../../redux/slices";
+
 import css from './Header.module.css'
 import {UserInfo} from "../userInfo/UserInfo";
 
 const Header = () => {
-    const [theme, setTheme] = useState(false)
-    const dispatch = useDispatch()
+    const [theme, setTheme] = useState(false);
+
+    const dispatch = useDispatch();
+
     return (
         <div className={css.main}>
-           <UserInfo/>
+            <UserInfo/>
+
             <SearchMovie/>
             {!theme ? (<FontAwesomeIcon
                     icon={faToggleOff}
@@ -22,6 +26,7 @@ const Header = () => {
                         dispatch(themeAction.setLightTheme())
                     }
                     }/>)
+
                 : (<FontAwesomeIcon
                     icon={faToggleOn}
                     className={css.button}
@@ -30,13 +35,8 @@ const Header = () => {
                         dispatch(themeAction.setDarkTheme())
                     }}
                 />)}
-
-
-
-
-
         </div>
     );
 };
 
-export  {Header};
+export {Header};
